@@ -9,19 +9,19 @@ const ProductCard = ({ product }) => {
   const isInactive = inactive.includes(product.id);
 
   return (
-    <Card>
-      <Card.Img variant="top" src={product.image} />
+    <Card style={{ width: 200, marginBottom: '20px' }}>
+      <Card.Img variant="top" src={product.image} height="150"/>
       <Card.Body>
-        <Card.Title>{product.title}</Card.Title>
-        <Card.Text>{product.description}</Card.Text>
-        <Button variant={isFavorite ? 'danger' : 'primary'} onClick={() => toggleFavorite(product.id)}>
-          {isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+        <Card.Title>{product.title.slice(0, 30)}...</Card.Title>
+        <Card.Text>{product.description.slice(0, 30)}...</Card.Text>
+        <Button variant={isFavorite ? 'danger' : 'primary'} onClick={() => toggleFavorite(product.id)} style={{ marginLeft: 2 }}>
+          {isFavorite ? '- favoritos' : '+ favoritos'}
         </Button>
-        <Button variant={isInactive ? 'secondary' : 'warning'} onClick={() => toggleInactive(product.id)}>
-          {isInactive ? 'Restaurar' : 'Inactivar'}
+        <Button variant={isInactive ? 'secondary' : 'warning'} onClick={() => toggleInactive(product.id)} style={{ marginLeft: 2 }}>
+          {isInactive ? 'Restaurar' : 'Borrar'}
         </Button>
-        <Link to={`/product/${product.id}`} className="btn btn-info">
-          Ver detalles
+        <Link to={`/product/${product.id}`} className="btn btn-info" style={{ marginLeft: 2 }}>
+          Detalles
         </Link>
       </Card.Body>
     </Card>
@@ -29,3 +29,7 @@ const ProductCard = ({ product }) => {
 };
 
 export default ProductCard;
+
+
+
+
