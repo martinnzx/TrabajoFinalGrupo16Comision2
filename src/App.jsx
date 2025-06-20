@@ -4,19 +4,22 @@ import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import ProductDetail from './pages/ProductDetail';
 import Inactive from './pages/Inactive';
+import ProductForm from './components/ProductForm';
 import Login from './pages/Login';
-import Navbar from './components/Navbar';
+import NavBar from './components/NavBar';
+
 
 function App() {
   return (
     <ProductProvider>
       <Router>
-        <Navbar />
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/inactive" element={<Inactive />} />
+          <Route path="/create" element={<ProductForm />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
