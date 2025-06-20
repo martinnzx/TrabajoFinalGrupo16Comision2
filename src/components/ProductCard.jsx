@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { ProductContext } from '../context/ProductContext';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import ProductForm from './ProductForm';
 
 const ProductCard = ({ product }) => {
   const { toggleFavorite, toggleInactive, favorites, inactive } = useContext(ProductContext);
@@ -23,6 +24,9 @@ const ProductCard = ({ product }) => {
         <Link to={`/product/${product.id}`} className="btn btn-info" style={{ marginLeft: 2 }}>
           Detalles
         </Link>
+        <Button variant='danger' onClick={() => ProductForm(product)} style={{ marginLeft: 2 }}>
+          Modificar
+        </Button>
       </Card.Body>
     </Card>
   );
