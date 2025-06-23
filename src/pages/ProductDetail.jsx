@@ -16,7 +16,6 @@ const ProductDetail = () => {
       <p>{product.description}</p>
       <p>Precio: ${product.price}</p>
       <p>Categoría: {product.category}</p>
-      <p>Stock: {product.stock}</p>
     </div>
   );
 };

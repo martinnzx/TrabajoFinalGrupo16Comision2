@@ -24,7 +24,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  display: block;/* flex;*/
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -66,3 +66,24 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.navbar {
+  position: inherit;/* fixed;*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #646cff;
+  color: #535bf2;
+  padding: 1rem;
+  z-index: 1000; /* para que esté por encima del contenido */
+}
+
+.texto-carrusel {
+  color: darkblue; 
+}
+
+.caption-carrusel {
+  position: absolute;
+  top: 10%;         
+}
+
