@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from 'react';
-
 export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
@@ -25,6 +24,15 @@ export const ProductProvider = ({ children }) => {
     );
   };
 
+  const addOrUpdateProduct = (product) => {
+    if (product.id) {
+      setProducts(products.map(p => (p.id === product.id ? product : p)));
+    } else {
+      const newProduct = { ...product, id: Date.now(), favorite: false, active: true };
+      setProducts([...products, newProduct]);
+    }
+  };
+
   return (
     <ProductContext.Provider
       value={{
@@ -33,10 +41,10 @@ export const ProductProvider = ({ children }) => {
         inactive,
         toggleFavorite,
         toggleInactive,
+        addOrUpdateProduct,
       }}
     >
       {children}
     </ProductContext.Provider>
   );
 };
-
